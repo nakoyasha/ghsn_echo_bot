@@ -1,0 +1,21 @@
+{
+  "name": "tracker-bot",
+  "module": "index.ts",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "run": "bun src/index.ts",
+    "dev": "bun --watch src/index.ts",
+    "build": "node build/index.mjs"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.5.0",
+    "esbuild": "^0.25.5"
+  }
+}
