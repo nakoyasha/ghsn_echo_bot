@@ -10,14 +10,10 @@ export const commands = [
     async execute(interaction: CommandInteraction) {
       const message = interaction.options.get("message", true)?.value as string;
       const attachment = interaction.options.get("file")?.attachment;
-      const channel = interaction.channel;
-
-      if (channel != null && channel.isSendable()) {
-        interaction.reply({
-          content: message,
-          files: (attachment != undefined && [attachment]) || [],
-        });
-      }
+      interaction.reply({
+        content: message,
+        files: (attachment != undefined && [attachment]) || [],
+      });
     },
     ...new SlashCommandBuilder()
       .setName("echo-message")
