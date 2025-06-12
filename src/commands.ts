@@ -1,4 +1,9 @@
-import { CommandInteraction, SlashCommandBuilder } from "discord.js";
+import {
+  ApplicationIntegrationType,
+  CommandInteraction,
+  InteractionContextType,
+  SlashCommandBuilder,
+} from "discord.js";
 
 export const commands = [
   {
@@ -23,6 +28,15 @@ export const commands = [
           .setDescription("Message to send")
           .setRequired(true)
       )
+      .setContexts([
+        InteractionContextType.BotDM,
+        InteractionContextType.Guild,
+        InteractionContextType.PrivateChannel,
+      ])
+      .setIntegrationTypes([
+        ApplicationIntegrationType.GuildInstall,
+        ApplicationIntegrationType.UserInstall,
+      ])
       .addAttachmentOption((option) =>
         option
           .setName("file")
